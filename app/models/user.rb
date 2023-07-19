@@ -1,6 +1,8 @@
 class User < ApplicationRecord
     has_many :comments
-    has_many :posts
+    # counter_cache makes sure Rails automatically update the PostCounter
+    # attribute in the User model when posts are created or destroyed.
+    has_many :posts, counter_cache: true
     has_many :likes
 
     # The function retrieves the three most recent posts written 
