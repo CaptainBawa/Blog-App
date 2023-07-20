@@ -5,6 +5,12 @@ class Post < ApplicationRecord
   has_many :comments, foreign_key: 'posts_id', dependent: :destroy
   has_many :likes, dependent: :destroy
 
+  # The line `validates :Title, presence: true, length: {maximum: 250}` is a
+  # validation rule for the `Title` attribute of the `Post` model.
+  validates :Title, presence: true, length: { maximum: 250 }
+  validates :CommentsCounter, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
+  validates :LikesCounter, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
+
   # The function updates the PostCounter attribute of a user by counting
   # the number of posts they have.
   def update_posts_counter
