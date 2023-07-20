@@ -61,10 +61,10 @@
 ### Key Features <a name="key-features"></a>
 
 
-- **Comments Table**
-- **Posts Table**
-- **Users Table**
-- **Likes Table**
+- **Users can find recent posts for a given user**
+- **Comments counter**
+- **Post counter**
+- **Likes counter**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -157,7 +157,6 @@ You can deploy this project using:
 ## 🔭 Future Features <a name="future-features"></a>
 
 
-- [ ] **Process data in models**
 - [ ] **Validations and model specs.**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
