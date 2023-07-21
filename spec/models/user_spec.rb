@@ -1,21 +1,19 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  subject { User.new(Name: 'test', Photo: 'photo1', Bio: 'bio') }
-
-  before { subject.save }
+  subject { User.create(name: 'test', photo: 'photo1', bio: 'bio', post_counter: 0) }
 
   it 'name must be present' do
-    subject.Name = nil
+    subject.name = nil
     expect(subject).to_not be_valid
   end
 
-  it 'post counter should be greater than or equal to zero' do
-    subject.PostCounter = -1
+  it 'should be greater than or equal to zero' do
+    subject.post_counter = -1
     expect(subject).to_not be_valid
   end
 
-  it 'return three most recent post' do
+  it 'should three most recent post' do
     expect(subject.three_most_recent_posts).to eq(subject.posts.order(updated_at: :desc).limit(3))
   end
 end
