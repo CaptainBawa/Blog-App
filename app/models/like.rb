@@ -5,7 +5,7 @@ class Like < ApplicationRecord
   # The function `update_post_likes_counter` increments the `LikesCounter`
   # attribute of a post.
   def update_post_likes_counter
-    post.increment!(:LikesCounter)
+    post.increment!(:likes_counter)
   end
 end
 # Code to verify if the update_post_comments_counter method is working
