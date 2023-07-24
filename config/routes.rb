@@ -3,8 +3,10 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
-  get "user_posts/users/:user_id", to: "posts#index"
-  get "/user_post/:id", to: "posts#show"
+  # Nested route to access posts for a specific user
+  get "/users/:author_id/posts", to: "posts#index", as: :user_posts
+  # Route to access a specific post
+  get "/posts/:id", to: "posts#show", as: :user_post
   get "/users", to: "users#index"
-  get "/users/:id", to: "users#show"
+  get "/users/:id", to: "users#show", as: :user
 end
