@@ -25,5 +25,9 @@ RSpec.describe 'UsersController', type: :request do
             get user_path(id: user.id)
             expect(response.body).to include('Here is a list of a specific user')
         end
+        it 'should render the index template' do
+            get user_path(id: user.id)
+            expect(response).to render_template(:show)
+        end
     end
 end
