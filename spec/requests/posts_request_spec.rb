@@ -18,4 +18,18 @@ RSpec.describe 'PostsController', type: :request do
             expect(response).to render_template(:index)
         end
     end
+    describe 'GET /posts#show' do 
+        it 'should check if respose status code is correct' do 
+            get user_post_path(id: post.id)
+            expect(response).to have_http_status(200)
+        end
+        it 'should check if the response body includes correct placeholder text' do 
+            get user_post_path(id: post.id)
+            expect(response.body).to include('Here is a post for a given posts')
+        end
+        it 'should render the show template' do
+            get user_post_path(id: post.id)
+            expect(response).to render_template(:show)
+        end
+    end
 end
