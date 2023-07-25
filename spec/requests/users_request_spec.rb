@@ -10,6 +10,10 @@ RSpec.describe 'UsersController', type: :request do
             get users_path
             expect(response.body).to include('Here is a list of all users')
         end
+        it 'should render the index template' do
+            get users_path
+            expect(response).to render_template(:index)
+        end
     end
     describe 'GET /user#show' do 
         user = User.create(name: 'John Doe', photo: 'photo_url', bio: 'bio_text', post_counter: 0)
