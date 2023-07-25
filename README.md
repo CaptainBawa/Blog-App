@@ -147,7 +147,7 @@ You can deploy this project using:
 ## 🔭 Future Features <a name="future-features"></a>
 
 
-- [ ] **Validations and model specs.**
+- [ ] **Add form.**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
