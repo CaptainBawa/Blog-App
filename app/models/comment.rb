@@ -3,9 +3,9 @@ class Comment < ApplicationRecord
   belongs_to :post, foreign_key: 'posts_id'
 
   # The function `update_post_comments_counter` increments the
-  # `CommentsCounter` attribute of a post.
+  # `comments_counter` attribute of a post.
   def update_post_comments_counter
-    post.increment!(:comments_counter)
+    post.update(comments_counter: post.comments.count)
   end
 end
 
