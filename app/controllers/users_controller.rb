@@ -8,5 +8,6 @@ class UsersController < ApplicationController
   # based on the provided ID.
   def show
     @user = User.find(params[:id])
+    @posts = @user.posts
   end
 end
