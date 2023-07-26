@@ -13,3 +13,27 @@
  *= require_tree .
  *= require_self
  */
+
+ .user-container {
+    display: flex;
+    justify-content: center;
+    gap: 5%;
+ }
+
+ .user-container  img {
+    width: 17%;
+    height: 28vh;
+    padding-bottom: 3%;
+ }
+
+ .user-container div {
+    width: 50%;
+    height: 100%;
+    border: 2px solid gray;
+    padding: 2%;
+ }
+
+ .user-container h4 {
+   text-align: right;
+   font-size: 1.2em;
+}
