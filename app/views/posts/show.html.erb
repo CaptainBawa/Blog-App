@@ -1,1 +1,17 @@
-<h1>Here is a post for a given posts</h1>
+<%= render "shared/header" %>
+  <div>
+    <h2><%= @post.title %></h2>
+    <p><%= @post.text %></p>
+    <div>
+      <span>Comments: <%= @post.comments_counter %></span>
+      <span>Likes: <%= @post.likes_counter %></span>
+    </div>
+  </div>
+    
+  <h1>All comments</h1>
+  <% @post.comments.each do |comment| %>
+    <div>
+      <h4>Username: <%= comment.user.name %> - <span> <%= comment.text %> </span> </h4>
+    </div>
+  <% end %>
+<%= render "shared/footer" %>
