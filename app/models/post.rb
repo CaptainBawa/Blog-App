@@ -12,9 +12,10 @@ class Post < ApplicationRecord
   validates :likes_counter, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
 
   # The function updates the PostCounter attribute of a user by counting
-  # the number of posts they have.
+  # the number of posts they have. If there are no posts, it sets the counter to 0.
   def update_posts_counter
-    user.update(post_counter: user.posts.count)
+    post_count = user.posts.count
+    user.update(post_counter: post_count.zero? ? 0 : post_count)
   end
 
   # The function returns the five most recent comments in descending order

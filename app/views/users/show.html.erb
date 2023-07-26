@@ -1,1 +1,32 @@
-<h1>Here is a list of a specific user</h1>
+<%= render "shared/header" %>
+<div class="show-user-container">
+ <div class="show-header">
+    <img src="<%= @user.photo %>" alt="user photo">
+    <div>
+      <h2>Name: <%= @user.name %></h2>
+      <h4>Number of posts: <%= @user.post_counter %></h4>
+    </div>
+ </div>
+ <div class="bio">
+    <h2>Bio</h2>
+    <p><%= @user.bio %></p>
+ </div>
+  
+ <% @posts.each do |post| %>
+    <div>
+      <div class="show-posts">
+         <h2><%= post.title %></h2>
+         <p><%= post.text %></p>
+      <div>
+      <div>
+        <span>Comments: <%= post.comments_counter %></span>
+        <span>Likes: <%= post.likes_counter %></span>
+      </div>
+    </div>     
+ <% end %>
+</div>
+<button type="button">
+  <%= link_to "See all posts", user_posts_path(@user) %>
+</button>
+
+<%= render "shared/footer" %>

@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   # of the "users" controller. This means that when a user
   # visits the "/users" URL, the "index" action in the
   #"users" controller will be executed.
-  get "/users", to: "users#index"
+  root "users#index"
   # a route that maps the URL "/users/:id" to the "show"
   # action of the "users" controller.
   get "/users/:id", to: "users#show", as: :user
