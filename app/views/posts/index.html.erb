@@ -1,1 +1,29 @@
-<h1>Here is a list of posts for a given user</h1>
+<%= render "shared/header" %>
+<img src="<%= @user.photo %>" alt="user photo">
+<h2>Name: <%= @user.name %></h2>
+<h4>Number of posts: <%= @user.post_counter %></h4>
+
+<% @posts.each do |post| %>
+  <div>
+    <h2><%= post.title %></h2>
+    <p><%= post.text %></p>
+    <div>
+      <span>Comments: <%= post.comments_counter %></span>
+      <span>Likes: <%= post.likes_counter %></span>
+      <h5>
+        <%= link_to "Read post", user_post_path(post) %>
+      </h5>
+    </div>
+  </div>
+    
+  <h1>All comments</h1>
+  <% post.comments.each do |comment| %>
+    <div>
+      <h4>Username: <%= comment.user.name %> - <span> <%= comment.text %> </span> </h4>
+    </div>
+  <% end %>
+<% end %>
+
+<button type="button">Pagination</button>
+
+<%= render "shared/footer" %>
