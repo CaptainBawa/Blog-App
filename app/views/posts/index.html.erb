@@ -1,35 +1,49 @@
 <%= render "shared/header" %>
 <div class="posts-container">
- <div class="posts-header">
-  <img src="<%= @user.photo %>" alt="user photo">
-  <div>
-     <h2>Name: <%= @user.name %></h2>
-     <h4>Number of posts: <%= @user.post_counter %></h4>
+  <div class="posts-header">
+    <img src="<%= @user.photo %>" alt="user photo">
+    <div>
+      <h2>Name: <%= @user.name %></h2>
+      <h4>Number of posts: <%= @user.post_counter %></h4>
+    </div>
   </div>
- </div>
- <% @posts.each do |post| %>
- <div class="all-posts-container">
-    <div class="all-posts">
-      <h2><%= post.title %></h2>
-      <p><%= post.text %></p>
-      <div>
-         <span>Comments: <%= post.comments_counter %></span>
-         <span>Likes: <%= post.likes_counter %></span>
-         <h5>
-         <%= link_to "Read post", user_post_path(post) %>
-         </h5>
-     </div>
-    </div>  
- </div>
-    
-  <h1 class="comments-header">All comments</h1>
-  <div class="post-comments">
-   <% post.comments.each do |comment| %>
-      <h4>Username: <%= comment.user.name %> - <span> <%= comment.text %> </span> </h4>
-   <% end %>
-  </div>
- <% end %>
+  <% @posts.each do |post| %>
+    <div class="all-posts-container">
+      <div class="all-posts">
+        <h2><%= post.title %></h2>
+        <p><%= post.text %></p>
+        <div>
+          <span>Comments: <%= post.comments_counter %></span>
+          <span>Likes: <%= post.likes_counter %></span>
+          <h5>
+            <%= link_to "Read post", user_post_path(post) %>
+          </h5>
+        </div>
+      </div>
+    </div>
+
+    <h1 class="comments-header">All comments</h1>
+    <div class="post-comments">
+      <% post.comments.each do |comment| %>
+        <h4>Username: <%= comment.user.name %> - <span> <%= comment.text %> </span> </h4>
+      <% end %>
+    </div>
+  <% end %>
 </div>
+
+<%= form_with(model: @post, url: create_user_post_path(@user), method: :post) do |form| %>
+  <%= form.hidden_field :author_id, value: @user.id %>
+  <%= form.hidden_field :comments_counter, value: 0 %>
+  <%= form.hidden_field :likes_counter, value: 0 %>
+  <h2>Create a new post</h2>
+  <%= form.label :title %>
+  <%= form.text_field :title %><br>
+
+  <%= form.label :text %>
+  <%= form.text_area :text %><br>
+
+  <%= form.submit "Create Post" %><br>
+<% end %>
 
 <button type="button">Pagination</button>
 
