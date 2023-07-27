@@ -36,7 +36,8 @@
  }
 
  .user-container,
- .show-header {
+ .show-header,
+ .posts-header {
     display: flex;
     justify-content: center;
     gap: 5%;
@@ -49,7 +50,9 @@
  }
 
  .user-container div,
- .show-header div {
+ .show-header div,
+ .posts-header div,
+ .all-posts {
     width: 50%;
     height: 100%;
     border: 2px solid gray;
@@ -61,7 +64,9 @@
    font-size: 1.2em;
 }
 
-.show-user-container {
+.show-user-container,
+.posts-container,
+.all-posts-container {
    width: 100%;
    height: auto;
    display: flex;
@@ -74,12 +79,16 @@
    font-size: 1.5em;
 }
 
-.show-header h4 {
+.show-header h4,
+.posts-header h4,
+.all-posts div {
    text-align: right;
 }
 
 .bio,
-.show-posts {
+.show-posts,
+.all-posts,
+.post-comments {
    width: 74%;
    height: auto;
    padding: 1%;
@@ -87,6 +96,18 @@
    margin-left: 12%;
    margin-bottom: 2%;
    font-size: 1.5em;
+}
+
+.posts-header div {
+   font-size: 1.3em;
+}
+
+.all-posts a {
+   color: blue;
+}
+
+.comments-header {
+   text-align: center;
 }
 
 .show-posts div {
