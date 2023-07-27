@@ -81,14 +81,16 @@
 
 .show-header h4,
 .posts-header h4,
-.all-posts div {
+.all-posts div,
+.single-post div {
    text-align: right;
 }
 
 .bio,
 .show-posts,
 .all-posts,
-.post-comments {
+.post-comments,
+.single-post {
    width: 74%;
    height: auto;
    padding: 1%;
