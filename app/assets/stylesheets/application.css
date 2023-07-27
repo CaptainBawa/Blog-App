@@ -114,6 +114,20 @@ button {
   font-size: 1.3em;
 }
 
+form {
+  border: 2px solid gray;
+  width: 20%;
+  margin-left: 35%;
+  margin-bottom: 2%;
+  padding: 2%;
+}
+
+input,
+textarea {
+  padding: 1%;
+  margin-bottom: 1%;
+}
+
 .footer {
   height: 10vh;
   margin-bottom: 0;
