@@ -28,4 +28,6 @@ Rails.application.routes.draw do
 
   # Allow the current_user to add a like to a post
   post "/posts/:id/likes", to: "posts#create_like", as: :post_likes
+
+  post "/users/:author_id/posts", to: "posts#create", as: :create_user_post
 end
