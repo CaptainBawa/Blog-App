@@ -20,14 +20,20 @@ Rails.application.routes.draw do
   # action of the "users" controller.
   get "/users/:id", to: "users#show", as: :user
 
-  # Create a new post on behalf of the current_user
+  # a route that maps the URL "/posts" to the "create" action of the "posts"
+  # controller. This means that when a user submits a POST request to the "/posts"
+  # URL, the "create" action in the "posts" controller will be executed.
   post "/posts", to: "posts#create"
 
-  # Create a new comment on a post on behalf of the current_user
+ # a route that maps the URL "/posts/:id/comments" to the "create_comment"
+ # action of the "posts" controller.
   post "/posts/:id/comments", to: "posts#create_comment", as: :post_comments
 
-  # Allow the current_user to add a like to a post
+ # a route that maps the URL "/posts/:id/likes" to the "create_like"
+ # action of the "posts" controller.
   post "/posts/:id/likes", to: "posts#create_like", as: :post_likes
 
+  # route that maps the URL "/users/:author_id/posts" to the "create" action of the "posts"
+  # controller.
   post "/users/:author_id/posts", to: "posts#create", as: :create_user_post
 end
