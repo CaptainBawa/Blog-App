@@ -35,19 +35,21 @@
    padding-top: 2%;
  }
 
- .user-container {
+ .user-container,
+ .show-header {
     display: flex;
     justify-content: center;
     gap: 5%;
  }
 
- .user-container  img {
+ img {
     width: 17%;
     height: 28vh;
     padding-bottom: 3%;
  }
 
- .user-container div {
+ .user-container div,
+ .show-header div {
     width: 50%;
     height: 100%;
     border: 2px solid gray;
@@ -57,6 +59,51 @@
  .user-container h4 {
    text-align: right;
    font-size: 1.2em;
+}
+
+.show-user-container {
+   width: 100%;
+   height: auto;
+   display: flex;
+   flex-direction: column;
+}
+
+.show-header {
+   width: 100%;
+   height: auto;
+   font-size: 1.5em;
+}
+
+.show-header h4 {
+   text-align: right;
+}
+
+.bio,
+.show-posts {
+   width: 74%;
+   height: auto;
+   padding: 1%;
+   border: 2px solid gray;
+   margin-left: 12%;
+   margin-bottom: 2%;
+   font-size: 1.5em;
+}
+
+.show-posts div {
+   text-align: right;
+}
+
+button {
+   width: 10%;
+   height: 5vh;
+   margin-bottom: 2%;
+   margin-left: 40%;
+   font-size: 1.3em;
+}
+
+a {
+   text-decoration: none;
+   color: black;
 }
 
 .footer {
