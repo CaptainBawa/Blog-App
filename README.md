@@ -147,7 +147,9 @@ You can deploy this project using:
 ## 🔭 Future Features <a name="future-features"></a>
 
 
-- [ ] **Add form.**
+- [ ] **Add form**
+- [ ] **Add complex styles**
+- [ ] **Add posts**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
