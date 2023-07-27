@@ -1,5 +1,4 @@
 class PostsController < ApplicationController
-
   # The index function retrieves a user and their posts, and initializes a new post object.
   def index
     @user = User.find(params[:author_id])
@@ -24,7 +23,7 @@ class PostsController < ApplicationController
     @post = Post.new(post_params.merge(author_id: @user.id))
     if @post.save
       @post.update_posts_counter
-      redirect_to user_posts_path(@user), notice: "Post created successfully."
+      redirect_to user_posts_path(@user), notice: 'Post created successfully.'
     else
       @posts = @user.posts
       render :index
@@ -37,7 +36,7 @@ class PostsController < ApplicationController
     @comment = current_user.comments.build(comment_params.merge(post: @post))
     if @comment.save
       @comment.update_post_comments_counter
-      redirect_to user_post_path(@post), notice: "Comment added successfully."
+      redirect_to user_post_path(@post), notice: 'Comment added successfully.'
     else
       render :show
     end
@@ -49,7 +48,7 @@ class PostsController < ApplicationController
     @like = current_user.likes.build(like_params.merge(posts_id: @post.id))
     if @like.save
       @like.update_post_likes_counter
-      redirect_to user_post_path(@post), notice: "Post liked successfully."
+      redirect_to user_post_path(@post), notice: 'Post liked successfully.'
     else
       render :show
     end
