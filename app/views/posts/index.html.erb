@@ -1,28 +1,35 @@
 <%= render "shared/header" %>
-<img src="<%= @user.photo %>" alt="user photo">
-<h2>Name: <%= @user.name %></h2>
-<h4>Number of posts: <%= @user.post_counter %></h4>
-
-<% @posts.each do |post| %>
+<div class="posts-container">
+ <div class="posts-header">
+  <img src="<%= @user.photo %>" alt="user photo">
   <div>
-    <h2><%= post.title %></h2>
-    <p><%= post.text %></p>
-    <div>
-      <span>Comments: <%= post.comments_counter %></span>
-      <span>Likes: <%= post.likes_counter %></span>
-      <h5>
-        <%= link_to "Read post", user_post_path(post) %>
-      </h5>
-    </div>
+     <h2>Name: <%= @user.name %></h2>
+     <h4>Number of posts: <%= @user.post_counter %></h4>
   </div>
+ </div>
+ <% @posts.each do |post| %>
+ <div class="all-posts-container">
+    <div class="all-posts">
+      <h2><%= post.title %></h2>
+      <p><%= post.text %></p>
+      <div>
+         <span>Comments: <%= post.comments_counter %></span>
+         <span>Likes: <%= post.likes_counter %></span>
+         <h5>
+         <%= link_to "Read post", user_post_path(post) %>
+         </h5>
+     </div>
+    </div>  
+ </div>
     
-  <h1>All comments</h1>
-  <% post.comments.each do |comment| %>
-    <div>
+  <h1 class="comments-header">All comments</h1>
+  <div class="post-comments">
+   <% post.comments.each do |comment| %>
       <h4>Username: <%= comment.user.name %> - <span> <%= comment.text %> </span> </h4>
-    </div>
-  <% end %>
-<% end %>
+   <% end %>
+  </div>
+ <% end %>
+</div>
 
 <button type="button">Pagination</button>
 
