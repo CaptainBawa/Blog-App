@@ -30,47 +30,11 @@ class PostsController < ApplicationController
     end
   end
 
-  # The function creates a comment for a post and updates the comment counter for the post.
-  def create_comment
-    @post = Post.find(params[:id])
-    @comment = current_user.comments.build(comment_params.merge(post: @post))
-    if @comment.save
-      @comment.update_post_comments_counter
-      redirect_to user_post_path(@post), notice: 'Comment added successfully.'
-    else
-      render :show
-    end
-  end
-
-  # The function creates a like for a post and updates the post's like counter.
-  def create_like
-    @post = Post.find(params[:id])
-    @like = current_user.likes.build(like_params.merge(posts_id: @post.id))
-    if @like.save
-      @like.update_post_likes_counter
-      redirect_to user_post_path(@post), notice: 'Post liked successfully.'
-    else
-      render :show
-    end
-  end
-
   private
 
   # The function `post_params` is used to extract and permit specific parameters from
   # the `params` object in a Ruby on Rails application.
   def post_params
     params.require(:post).permit(:title, :text, :author_id, :comments_counter, :likes_counter)
-  end
-
-  # The function `comment_params` is used to extract and permit the `text` parameter
-  # from the `comment` object in the `params` hash.
-  def comment_params
-    params.require(:comment).permit(:text)
-  end
-
-  # The function `like_params` is used to permit specific parameters for the
-  # `like` object in a Ruby on Rails application.
-  def like_params
-    params.require(:like).permit(:users_id, :posts_id)
   end
 end
