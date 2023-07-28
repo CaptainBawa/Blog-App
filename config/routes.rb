@@ -27,11 +27,11 @@ Rails.application.routes.draw do
 
  # a route that maps the URL "/posts/:id/comments" to the "create_comment"
  # action of the "posts" controller.
-  post "/posts/:id/comments", to: "posts#create_comment", as: :post_comments
+  post "/posts/:id/comments", to: "comments#create_comment", as: :post_comments
 
  # a route that maps the URL "/posts/:id/likes" to the "create_like"
  # action of the "posts" controller.
-  post "/posts/:id/likes", to: "posts#create_like", as: :post_likes
+  post "/posts/:id/likes", to: "likes#create_like", as: :post_likes
 
   # route that maps the URL "/users/:author_id/posts" to the "create" action of the "posts"
   # controller.
