@@ -9,10 +9,14 @@ class PostsController < ApplicationController
   # The function assigns variables for a post, comment, like, and user in order
   # to display them in a view.
   def show
-    @post = Post.find(params[:id])
+    @user = current_user
+    @post = Post.find_by(id: params[:id])
     @comment = Comment.new
     @like = Like.new
-    @user = current_user
+
+    return unless @post.nil?
+
+    redirect_to root_path, alert: 'Post not found.'
   end
 
   # The `create` function creates a new post and associates it with the current user,
