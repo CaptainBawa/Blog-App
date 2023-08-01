@@ -5,9 +5,7 @@
       <div>
         <h2>Name: <%= user.name %></h2>
         <h4>Number of posts: <%= user.post_counter %></h4>
-        <h4>
-          <%= link_to "View profile", user_path(user) %>
-        </h4>
+        <%= link_to "View profile", user_path(user) %>
       </div>
     </div>
 <% end %>
