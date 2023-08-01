@@ -32,7 +32,7 @@ RSpec.describe 'User index page', type: :feature do
   end
 
   it "redirects to the correct user's show page when clicking on a user's profile link" do
-     users.each do |user|
+    users.each do |user|
       expect(page).to have_link('View profile', href: user_path(user.id))
     end
   end
