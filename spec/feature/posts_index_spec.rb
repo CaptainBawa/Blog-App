@@ -47,4 +47,14 @@ RSpec.describe 'User post index page', type: :feature do
   it 'Pagination' do
     expect(page).to have_button('Pagination')
   end
+
+  it "redirects to the post's show page when clicking on the 'Read post' link" do
+    @posts = user.posts
+
+    @posts.each do |post|
+      click_link 'Read post', href: user_post_path(post)
+      expect(current_path).to eq(user_post_path(post))
+      visit user_posts_path(user)
+    end
+  end
 end
