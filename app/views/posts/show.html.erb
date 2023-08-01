@@ -12,7 +12,6 @@
     <%= form.submit "Like" %>
   <% end %>
  </div>
-  </div>
 
   <%= form_with(model: @comment, url: post_comments_path(@post), method: :post) do |form| %>
     <h2>Add a comment</h2>
@@ -21,7 +20,6 @@
 
     <%= form.submit "Add Comment" %><br>
   <% end %>
- </div>
     
   <h1 class="comments-header">All comments</h1>
   <div class="post-comments">
