@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable, :confirmable
   has_many :comments, foreign_key: 'users_id'
   # counter_cache makes sure Rails automatically update the PostCounter
   # attribute in the User model when posts are created or destroyed.
