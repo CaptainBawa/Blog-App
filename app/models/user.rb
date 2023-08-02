@@ -13,10 +13,7 @@ class User < ApplicationRecord
   # The code `validates :Name, presence: true` is validating that the `Name`
   # attribute of the `User` model is present, meaning it cannot be blank or nil.
   validates :name, presence: true
-  # is adding a validation to the `User` model. It ensures that the `PostCounter` attribute is a
-  # numerical value and that it is greater than or equal to 0. This means that the `PostCounter`
-  # attribute cannot be a non-integer value or a negative number.
-  validates :post_counter, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
+  # validates :post_counter, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
 
   # The function retrieves the three most recent posts written
   # by the author.
