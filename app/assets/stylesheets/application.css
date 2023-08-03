@@ -134,6 +134,12 @@ textarea {
   margin-right: 5%;
 }
 
+.signup,
+.forget-pw {
+  margin: 0 0 0 30%;
+  font-size: 1.2em;
+}
+
 .login-form {
   width: 50%;
   flex-direction: column;
