@@ -13,6 +13,7 @@ class PostsController < ApplicationController
     @post = Post.find_by(id: params[:id])
     @comment = Comment.new
     @like = Like.new
+    cookies[:post_id]=@post.id if @post.present?
 
     return unless @post.nil?
 
