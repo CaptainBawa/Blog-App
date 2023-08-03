@@ -129,6 +129,8 @@ textarea {
 }
 
 .footer {
+  position: fixed;
+  bottom: 0;
   height: 10vh;
   margin-bottom: 0;
   border-top: 1px solid black;
