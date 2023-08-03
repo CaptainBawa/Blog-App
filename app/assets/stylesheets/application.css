@@ -128,6 +128,40 @@ textarea {
   margin-bottom: 1%;
 }
 
+.form-header {
+  text-align: center;
+  font-size: 3em;
+  margin-right: 5%;
+}
+
+.login-form {
+  width: 50%;
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+  border: none;
+}
+
+.field {
+  width: 80%;
+}
+
+.actions {
+  width: 10%;
+  margin: -2% 5% 0 0;
+}
+
+.actions input {
+  width: 100%;
+  height: 3vh;
+}
+
+#user_email,
+#user_password {
+  width: 50%;
+}
+
 .footer {
   position: fixed;
   bottom: 0;
