@@ -1,10 +1,10 @@
 <%= render "shared/header" %>
 <div class="posts-container">
   <div class="posts-header">
-    <img src="<%= @user.photo %>" alt="user photo">
+    <img src="<%= current_user.photo %>" alt="user photo">
     <div>
-      <h2>Name: <%= @user.name %></h2>
-      <h4>Number of posts: <%= @user.post_counter %></h4>
+      <h2>Name: <%= current_user.name %></h2>
+      <h4>Number of posts: <%= current_user.post_counter %></h4>
     </div>
   </div>
   <% @posts.each do |post| %>
@@ -18,6 +18,9 @@
           <h5>
             <%= link_to "Read post", user_post_path(post) %>
           </h5>
+          <% if can?(:destroy, post) %>
+            <%= button_to "Delete", delete_post_path(author_id: post.user.id, id: post.id), method: :delete, data: { confirm: 'Are you sure you want to delete this post?' } %>
+          <% end %>
         </div>
       </div>
     </div>
@@ -31,8 +34,8 @@
   <% end %>
 </div>
 
-<%= form_with(model: @post, url: create_user_post_path(@user), method: :post) do |form| %>
-  <%= form.hidden_field :author_id, value: @user.id %>
+<%= form_with(model: @post, url: create_user_post_path(current_user), method: :post) do |form| %>
+  <%= form.hidden_field :author_id, value: current_user.id %>
   <%= form.hidden_field :comments_counter, value: 0 %>
   <%= form.hidden_field :likes_counter, value: 0 %>
   <h2>Create a new post</h2>

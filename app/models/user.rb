@@ -2,7 +2,7 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable, :confirmable
+         :recoverable, :rememberable, :validatable
 
   has_many :comments, foreign_key: 'users_id'
   # counter_cache makes sure Rails automatically update the PostCounter
@@ -19,6 +19,10 @@ class User < ApplicationRecord
   # by the author.
   def three_most_recent_posts
     Post.where(author_id: id).order(created_at: :desc).limit(3)
+  end
+
+  def admin?
+    role == 'admin'
   end
 end
 

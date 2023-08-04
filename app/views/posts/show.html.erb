@@ -24,7 +24,11 @@
   <h1 class="comments-header">All comments</h1>
   <div class="post-comments">
   <% @post.comments.each do |comment| %>
-      <h4>Username: <%= comment.user.name %> - <span> <%= comment.text %> </span> </h4>
+      <h4>Username: <%= comment.user.name %> - <span> <%= comment.text %> </span>
+        <% if can?(:destroy, comment) %>
+          <%= button_to "Delete", delete_comment_path(users_id: @post.user.id, posts_id: @post.id, id: comment.id), method: :delete, data: { confirm: 'Are you sure you want to delete this comment?' } %>
+        <% end %>
+     </h4>
   <% end %>
   </div>
 <%= render "shared/footer" %>
