@@ -35,6 +35,14 @@ class PostsController < ApplicationController
     end
   end
 
+  def destroy
+    current_user = User.find(params[:author_id])
+    @post = Post.find(params[:id])
+    authorize! :destroy, @post
+    @post.destroy
+    redirect_to user_posts_path(current_user), notice: 'Post deleted successfully.'
+  end
+
   private
 
   # The function `post_params` is used to extract and permit specific parameters from
