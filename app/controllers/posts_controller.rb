@@ -40,6 +40,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     authorize! :destroy, @post
     @post.destroy
+    @post.update_posts_counter
     redirect_to user_posts_path(current_user), notice: 'Post deleted successfully.'
   end
 
