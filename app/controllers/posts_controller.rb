@@ -1,8 +1,8 @@
 class PostsController < ApplicationController
   # The index function retrieves a user and their posts, and initializes a new post object.
   def index
-    @user = User.find(params[:author_id])
-    @posts = @user.posts.includes(:comments)
+    current_user = User.find(params[:author_id])
+    @posts = current_user.posts.includes(:comments)
     @post = Post.new
   end
 
@@ -17,7 +17,7 @@ class PostsController < ApplicationController
 
     return unless @post.nil?
 
-    redirect_to root_path, alert: 'Post not found.'
+    redirect_to root_path, alert: 'Comment deleted successfully.'
   end
 
   # The `create` function creates a new post and associates it with the current user,
