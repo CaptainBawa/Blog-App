@@ -40,11 +40,14 @@ Rails.application.routes.draw do
   post "/users/:author_id/posts", to: "posts#create", as: :create_user_post
 
   # Adding the routes for deleting posts and comments
-delete "/posts/:id", to: "posts#destroy", as: :delete_post
-delete "/comments/:id", to: "comments#destroy", as: :delete_comment
-namespace :api do
-  resources :posts, only: [:index] do
-    resources :comments, only: [:index, :create]
+ delete "/posts/:id", to: "posts#destroy", as: :delete_post
+ delete "/comments/:id", to: "comments#destroy", as: :delete_comment
+
+  namespace :api do
+    resources :users, only: [] do
+      resources :posts, only: [:index] do
+       resources :comments, only: [:index, :create]
+      end
+    end
   end
-end
 end
